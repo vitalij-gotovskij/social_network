@@ -23,9 +23,11 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.owner} - {self.content}"
 
+
 class Meta:
     verbose_name = 'Post'
     verbose_name_plural = 'Posts'
+
 
 class Like(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for every like')
