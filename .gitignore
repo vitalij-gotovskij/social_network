@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/social_network/posts/migrations/
+
+migrations/
