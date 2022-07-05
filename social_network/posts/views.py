@@ -21,7 +21,7 @@ class PostDetailView(generic.DetailView):
 class PostCreateView(LoginRequiredMixin, generic.CreateView): 
     model = Post
     fields = ['owner', 'content', 'pin_to_top']
-    success_url = "/posts/post_list"
+    success_url = "/posts/list"
     template_name = 'create_post.html'
 
     def form_valid(self, form):

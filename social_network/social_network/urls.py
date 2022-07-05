@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
-    path('posts/', include('posts.urls')),
     path('admin/', admin.site.urls),
-    path('tinymce/', include('tinymce.urls')),
-    
-] 
+    path('tinymce/', include('tinymce.urls')), 
+    path('posts/', include('posts.urls')),
+    path('friends/', include('friends.urls')),
+]
