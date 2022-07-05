@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'posts',
+    'friends',
     'tinymce',
     'crispy_forms',
     'django.contrib.admin',
