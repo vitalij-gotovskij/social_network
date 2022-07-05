@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce import models as tinymce_models
+from django.urls import reverse
 
 
 class Wall(models.Model):
@@ -19,11 +20,14 @@ class Post(models.Model):
     pin_to_top = models.BooleanField()
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now_add=True)
-    reply_to = models.ForeignKey('Post', on_delete=models.SET_NULL, null=True, related_name="replies")
-    repost_of = models.ForeignKey('Post', on_delete=models.SET_NULL, null=True, related_name="reposts")
+    reply_to = models.ForeignKey('Post', on_delete=models.SET_NULL, null=True, blank=True, related_name="replies")
+    repost_of = models.ForeignKey('Post', on_delete=models.SET_NULL, null=True, blank=True, related_name="reposts")
 
     def __str__(self):
         return f"{self.owner} - {self.content}"
+    
+    def get_absolute_url(self):
+        return reverse('post-list', args=[str(self.id)])
 
 
 class Meta:
