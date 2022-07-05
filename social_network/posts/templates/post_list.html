@@ -6,7 +6,11 @@
   <ul>
     {% for post in post_list %}
       <li>
-        <a href="{{ post.id }}">{{ post.content }}</a> ({{post.owner}})
+      {% if post.content|length > 35 %}
+        <a href="{{ post.id }}">{{ post.content|safe|slice:35 }}... </a> ({{post.owner}})
+      {% else %}
+        <a href="{{ post.id }}">{{ post.content|safe }} </a><br> ({{post.owner}})
+      {% endif %}
       </li>
     {% endfor %}
   </ul>
