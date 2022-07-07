@@ -1,6 +1,7 @@
 from cmath import e
 from multiprocessing import context
 import re
+from winreg import REG_QWORD
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
@@ -13,10 +14,10 @@ def registerUser(request):
     form = NewUserForm()
     if request.method == 'POST':
         form = NewUserForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             messages.success(request, 'Vartotojas sekmingai sukurtas')
-            # return redirect('login') nukreips i login puslapi kai bus padarytas
+            return redirect('login')
     context = {'form':form}
     return render(request, 'site_app/register.html', context)
 
