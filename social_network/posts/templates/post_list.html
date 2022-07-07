@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Post list</h1>
+  {% if post_list %}
+  <ul>
+    {% for post in post_list %}
+      <li>
+      {% if post.content|length > 35 %}
+        <a href="{{ post.id }}">{{ post.content|safe|slice:35 }}... </a> ({{post.owner}})
+      {% else %}
+        <a href="{{ post.id }}">{{ post.content|safe }} </a><br> ({{post.owner}})
+      {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No posts yet.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h4>Posted at {{ post.created_at }}</h4>
+
+  <p><strong>By:</strong> {{ post.owner }}</a></p>
+  <p>{{ post.content | safe  }}</p> 
+
+  </div>
+{% endblock %}
