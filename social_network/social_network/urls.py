@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from django.views import View
 from site_app import views
+from django.urls import path, include
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.registerUser, name="register"),
     path('login/', views.loginUser, name="login"),
+    path('tinymce/', include('tinymce.urls')), 
+    path('posts/', include('posts.urls')),
+    path('friends/', include('friends.urls')),
 ]
