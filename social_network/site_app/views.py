@@ -1,11 +1,5 @@
-from cmath import e
-from multiprocessing import context
-import re
-from winreg import REG_QWORD
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .forms import NewUserForm
 
